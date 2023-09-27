@@ -1,0 +1,10 @@
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+- name: cue_demo
+  image: docker.io/aescanero/timoni
+  commands:
+  - timoni -n default apply main file://. --values ./values.cue --dry-run --diff
+  - echo world
